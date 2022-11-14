@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
@@ -31,14 +32,15 @@ use App\Models\Job;
 // });
 
 
+//all jobs
+Route::get('/', [JobController::class,'index'] );
 
-Route::get('/', function () {
-    return view('jobs',[
-        'jobs'=>Job::all()]);
-});
+//show create form
+Route::get('/jobs/create',[JobController::class, 'create']);
 
-Route::get('/jobs/{job}',function(Job $job){
-    return view('job',[
-        'job'=>$job
-    ]);
-});
+
+//store jobs
+Route::post('/jobs',[JobController::class, 'store']);
+
+//single jobs
+Route::get('/jobs/{job}',[JobController::class, 'show']);
