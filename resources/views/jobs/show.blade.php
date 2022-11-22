@@ -6,7 +6,7 @@
     <div class="mx-4">
         <x-card class="p-10">
             <div class="flex flex-col items-center justify-center text-center">
-                <img class="w-48 mr-6 mb-6" src="{{ asset('images/no-image.png') }}" alt="" />
+                <img class="w-48 mr-6 mb-6" src="{{$job->logo ? asset('storage/' . $job->logo) : asset('images/logo.png') }}" alt="" />
 
                 <h3 class="text-2xl mb-2">{{ $job->title }}</h3>
                 <div class="text-xl font-bold mb-4">{{ $job->company }}</div>
@@ -36,6 +36,11 @@
                     </div>
                 </div>
             </div>
+        </x-card>
+        <x-card class="mt-4 p-2 space-x-6">
+            <a href="/jobs/{{$job->id}}/edit">
+                <i class="fa-solid fa-pencil"></i>Edit
+            </a>
         </x-card>
     </div>
 @endsection

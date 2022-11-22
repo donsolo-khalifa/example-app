@@ -42,5 +42,11 @@ Route::get('/jobs/create',[JobController::class, 'create']);
 //store jobs
 Route::post('/jobs',[JobController::class, 'store']);
 
+//show edit
+Route::get('/jobs/{job}/edit',[JobController::class, 'edit']);
+
+//update job
+Route::put('jobs/{job}',[JobController::class,'update']);
+
 //single jobs
 Route::get('/jobs/{job}',[JobController::class, 'show']);
