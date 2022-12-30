@@ -48,5 +48,9 @@ Route::get('/jobs/{job}/edit',[JobController::class, 'edit']);
 //update job
 Route::put('jobs/{job}',[JobController::class,'update']);
 
+//delete job
+Route::delete('jobs/{job}',[JobController::class,'destroy']);
+
+
 //single jobs
 Route::get('/jobs/{job}',[JobController::class, 'show']);

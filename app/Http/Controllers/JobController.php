@@ -20,7 +20,7 @@ class JobController extends Controller
     public function index()
     {
         return view('jobs.index', [
-            'jobs' => Job::latest()->filter(request(['tag', 'search']))->paginate(3)
+            'jobs' => Job::latest()->filter(request(['tag', 'search']))->paginate(4)
         ]);
     }
     public function create()
@@ -69,6 +69,11 @@ class JobController extends Controller
         }
         $job->update($info);
         return back()->with('success', 'job updated successfully');
+    }
+
+    public function destroy(Job $job){
+        $job->delete();
+        return redirect('/')->with('success','Job deleted');
     }
 
 }
