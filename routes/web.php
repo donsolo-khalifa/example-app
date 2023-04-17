@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\JobController;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Job;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +55,9 @@ Route::delete('jobs/{job}',[JobController::class,'destroy']);
 
 //single jobs
 Route::get('/jobs/{job}',[JobController::class, 'show']);
+
+//user register form
+Route::get('/register',[UserController::class,'register']);
+
+//create new user
+Route::post('/register',[UserController::class,'store']);
